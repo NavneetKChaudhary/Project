@@ -3,23 +3,23 @@ import time
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import algo
-
-# NOTE: Python version >=3.3 is required, due to "yield from" feature.
-
-
+import numpy as np
 
 if __name__ == "__main__":
     # Get user input to determine range of integers (1 to N) and desired
-    # sorting method (algorithm).
     N = int(input("Enter number of integers: "))
     method_msg = "Enter sorting method:\n(b)ubble\n(i)nsertion\n(m)erge \
         \n(q)uick\n(s)election\n"
     method = input(method_msg)
 
     # Build and randomly shuffle list of integers.
+    """
     A = [x + 1 for x in range(N)]
     random.seed(time.time())
     random.shuffle(A)
+
+    """
+    A= np.random.randint(1,2*N,N)
 
     # Get appropriate generator to supply to matplotlib FuncAnimation method.
     if method == "b":
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     # Set axis limits. Set y axis upper limit high enough that the tops of
     # the bars won't overlap with the text label.
     ax.set_xlim(0, N)
-    ax.set_ylim(0, int(1.07 * N))
+    ax.set_ylim(0, int(2.07 * N))
 
     # Place a text label in the upper-left corner of the plot to display
     # number of operations performed by the sorting algorithm (each "yield"
