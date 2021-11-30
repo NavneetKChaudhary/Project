@@ -54,7 +54,12 @@ int movePicker(const char arr[3][3], const int searchValue, const int weights[10
 void printBoard(const char arr[3][3]) {
 	SFOR(i) {
 		SFOR(j) {
-			cout << arr[i][j] << " ";
+			cout << arr[i][j];
+			if(j<2) cout << " | ";
+		}
+		if(i<2)
+		{
+		    cout << "\n---------";
 		}
 		cout << endl;
 	}
